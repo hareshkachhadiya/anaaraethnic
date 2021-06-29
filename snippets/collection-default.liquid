@@ -1,0 +1,31 @@
+<div class="collection-template collection-template-default">
+  <div class="container-fluid">
+  	{% render 'breadcrumb' %}
+    
+    <div class="halo-collection-content">
+      <div class="row">
+        {% section 'sidebar-filter' %}
+        {% section 'collection-template-default' %}
+      </div>
+      
+      {% if settings.style_product_grid == 'style_product_grid_2' %}
+        {% section 'recently-viewed-products-skin-1170' %}
+      {% else %}
+        {% section 'recently-viewed-products' %}
+      {% endif %}
+    </div>   
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.open-sidebar').click(function(){
+        if ($('#shopify-section-sidebar-filter').hasClass('hide-sidebar')){
+            $('#shopify-section-sidebar-filter').removeClass('hide-sidebar');
+          	$('#shopify-section-collection-template-default').removeClass('full-col-collection');
+        } else {
+          	$('#shopify-section-collection-template-default').addClass('full-col-collection');
+            $('#shopify-section-sidebar-filter').addClass('hide-sidebar');
+        }
+    });
+  });
+</script>
